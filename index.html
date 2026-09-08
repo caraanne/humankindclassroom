@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>humanKIND Classroom | A Curriculum for Private Preschools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FFFCED;
+      --teal-blue: #7EBEC9;
+      --teal-green: #4AA694;
+      --dusty-navy: #587792;
+      --brown: #5C4226;
+      --mauve: #BF73A5;
+      --golden: #FCB626;
+      --coral: #F44933;
+      --blush: #FBB5B3;
+      --terracotta: #D9856B;
+      --periwinkle: #9CA7D1;
+      --olive: #BFB31A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--brown);
+    }
+
+    /* NAV */
+    nav {
+      background: white;
+      padding: 16px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: var(--dusty-navy);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--teal-green); }
+
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--brown);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--teal-green); }
+
+    .nav-cta {
+      background: var(--teal-green) !important;
+      color: white !important;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 700 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--dusty-navy) !important; }
+
+    /* HERO */
+    .hero {
+      background: var(--cream);
+      padding: 72px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--blush);
+      color: var(--brown);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .hero h1 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--dusty-navy);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--teal-green);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--teal-green);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.98rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(74,166,148,0.35);
+      display: inline-block;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(74,166,148,0.4); }
+
+    .btn-secondary {
+      background: white;
+      color: var(--dusty-navy);
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.98rem;
+      text-decoration: none;
+      border: 2px solid var(--dusty-navy);
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover { background: var(--dusty-navy); color: white; }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 480px;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.08));
+    }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--dusty-navy);
+      padding: 16px 48px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .trust-item { display: flex; align-items: center; gap: 8px; }
+    .trust-dot { width: 8px; height: 8px; background: var(--golden); border-radius: 50%; flex-shrink: 0; }
+
+    /* SECTIONS */
+    .section-wrap { padding: 88px 48px; }
+    .section-wrap.white { background: white; }
+    .section-wrap.cream { background: var(--cream); }
+    .section-wrap.navy { background: var(--dusty-navy); }
+
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--teal-green);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .navy .section-label { color: var(--golden); }
+
+    h2 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      color: var(--dusty-navy);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .navy h2 { color: white; }
+
+    .section-intro {
+      font-size: 1.05rem;
+      color: #666;
+      line-height: 1.75;
+      max-width: 640px;
+      margin-bottom: 52px;
+    }
+
+    .navy .section-intro { color: rgba(255,255,255,0.82); }
+
+    /* PROBLEM */
+    .problem-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .problem-image img {
+      width: 100%;
+      max-width: 420px;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.07));
+    }
+
+    .problem-cards { display: flex; flex-direction: column; gap: 20px; }
+
+    .problem-card {
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 24px 28px;
+      border-left: 4px solid var(--blush);
+    }
+
+    .problem-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+
+    .problem-card p { font-size: 0.92rem; line-height: 1.65; color: #666; }
+
+    /* SOLUTION */
+    .solution-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .solution-image img {
+      width: 100%;
+      max-width: 460px;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.07));
+    }
+
+    .feature-list { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 18px; }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.97rem;
+      line-height: 1.65;
+      color: #444;
+    }
+
+    .check {
+      width: 24px; height: 24px;
+      background: var(--teal-green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 0.7rem;
+      flex-shrink: 0; margin-top: 2px;
+    }
+
+    /* INCLUDED */
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .included-card {
+      background: white;
+      border-radius: 18px;
+      padding: 28px 22px;
+      text-align: center;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+
+    .included-card:hover { transform: translateY(-4px); }
+
+    .included-card img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      margin-bottom: 14px;
+    }
+
+    .included-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.97rem;
+      color: var(--dusty-navy);
+      margin-bottom: 8px;
+    }
+
+    .included-card p { font-size: 0.87rem; color: #777; line-height: 1.6; }
+
+    /* THEMES STRIP */
+    .themes-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 36px;
+      justify-content: center;
+    }
+
+    .theme-tag {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      padding: 9px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    /* FOR WHO */
+    .for-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .for-image img {
+      width: 100%;
+      max-width: 420px;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.06));
+    }
+
+    .for-list { list-style: none; margin-top: 24px; display: flex; flex-direction: column; gap: 14px; }
+
+    .for-list li {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 1rem; font-weight: 600; color: #444;
+    }
+
+    .for-dot { width: 10px; height: 10px; background: var(--golden); border-radius: 50%; flex-shrink: 0; }
+
+    /* TESTIMONIALS */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: relative;
+    }
+
+    .quote-mark {
+      font-size: 4.5rem;
+      color: var(--teal-blue);
+      font-family: Georgia, serif;
+      line-height: 0.8;
+      opacity: 0.3;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .testimonial-card p {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      color: #444;
+      margin-bottom: 22px;
+    }
+
+    .testimonial-author { font-weight: 700; color: var(--dusty-navy); font-size: 0.9rem; }
+    .testimonial-role { font-size: 0.84rem; color: #aaa; margin-top: 2px; }
+
+    /* CTA */
+    .cta-layout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .cta-image img {
+      width: 220px;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.08));
+    }
+
+    .cta-section-wrap {
+      background: linear-gradient(135deg, var(--teal-green) 0%, var(--dusty-navy) 100%);
+      padding: 88px 48px;
+    }
+
+    .cta-section-wrap h2 { color: white; font-size: clamp(1.8rem, 3.5vw, 2.5rem); }
+    .cta-section-wrap p { color: rgba(255,255,255,0.85); font-size: 1.05rem; line-height: 1.75; margin-top: 14px; max-width: 540px; }
+
+    .cta-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+
+    .btn-white {
+      background: white;
+      color: var(--dusty-navy);
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.98rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      display: inline-block;
+    }
+
+    .btn-white:hover { transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.98rem;
+      text-decoration: none;
+      border: 2px solid white;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { background: white; color: var(--dusty-navy); }
+
+    .small-note {
+      margin-top: 18px;
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--brown);
+      padding: 44px 48px;
+      text-align: center;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.88rem;
+    }
+
+    .footer-logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo span { color: var(--golden); }
+    footer a { color: var(--teal-blue); text-decoration: none; }
+    footer p { margin-top: 8px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 820px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 48px 24px; text-align: center; }
+      .hero p { max-width: 100%; }
+      .hero-buttons { justify-content: center; }
+      .hero-image { order: -1; }
+      .hero-image img { max-width: 300px; }
+      .section-wrap { padding: 60px 24px; }
+      .problem-layout,
+      .solution-layout,
+      .for-layout,
+      .cta-layout { grid-template-columns: 1fr; }
+      .problem-image, .for-image { display: none; }
+      .cta-image { display: none; }
+      .trust-bar { padding: 16px 24px; gap: 20px; }
+      footer { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="images/logo.svg" alt="humanKIND Classroom" style="height: 48px; width: auto; display: block;" />
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="#curriculum">The Curriculum</a>
+      <a href="work-with-us.html">Work With Us</a>
+      <a href="#sample" class="nav-cta">Get a Free Sample</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="background: var(--cream);">
+    <div class="hero">
+      <div class="hero-text">
+        <span class="hero-badge">For Private Preschool Directors</span>
+        <h1>Build a classroom culture kids <em>carry with them</em> for life.</h1>
+        <p>humanKIND Classroom is a story-based curriculum that builds social skills, communication, and connection — without adding a single thing to your teachers' plates.</p>
+        <div class="hero-buttons">
+          <a href="#sample" class="btn-primary">Get a Free Sample Lesson</a>
+          <a href="#curriculum" class="btn-secondary">See the Curriculum</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="images/illus-1.svg" alt="Child reading a Big World of Little Dude book with Little Dude" />
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item"><span class="trust-dot"></span> Low prep for teachers</div>
+    <div class="trust-item"><span class="trust-dot"></span> Pre-K to Grade 2</div>
+    <div class="trust-item"><span class="trust-dot"></span> Play-based and hands-on</div>
+    <div class="trust-item"><span class="trust-dot"></span> Story-driven lessons</div>
+    <div class="trust-item"><span class="trust-dot"></span> Ready to use today</div>
+  </div>
+
+  <!-- PROBLEM -->
+  <div class="section-wrap white">
+    <div class="section-inner">
+      <div class="problem-layout">
+        <div class="problem-image">
+          <img src="images/illus-2.svg" alt="Little Dude and a bird navigating friendship" />
+        </div>
+        <div>
+          <span class="section-label">Sound Familiar?</span>
+          <h2>Your teachers are doing everything. They just need the right tools.</h2>
+          <div class="problem-cards" style="margin-top: 36px;">
+            <div class="problem-card">
+              <h3>Behavior is taking over the day</h3>
+              <p>When kids haven't learned to communicate, regulate, or connect with peers, it shows up in the classroom every single morning. And your teachers are the ones holding it together.</p>
+            </div>
+            <div class="problem-card">
+              <h3>There's no time for more prep</h3>
+              <p>Your educators are talented and dedicated — but they didn't become preschool teachers to spend their evenings hunting for lesson plans. They need something that's ready to go.</p>
+            </div>
+            <div class="problem-card">
+              <h3>You want something that actually feels like your school</h3>
+              <p>Not a binder full of worksheets. Not more screens. Something warm, real, and built for how young children actually learn — through stories, play, and connection.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOLUTION -->
+  <div class="section-wrap cream" id="curriculum">
+    <div class="section-inner">
+      <div class="solution-layout">
+        <div>
+          <span class="section-label">The humanKIND Curriculum</span>
+          <h2>A curriculum your whole school will feel good about.</h2>
+          <p style="font-size: 1rem; color: #666; line-height: 1.75; margin-top: 12px;">Built on the Big World of Little Dude book series — each unit is anchored in a story, so lessons feel like storytime, not a program. Because that's exactly what four-year-olds need.</p>
+          <ul class="feature-list">
+            <li>
+              <span class="check">&#10003;</span>
+              <span><strong>Story-based learning</strong> — every unit begins with a Little Dude book, making social skills feel natural and memorable.</span>
+            </li>
+            <li>
+              <span class="check">&#10003;</span>
+              <span><strong>Zero-prep options</strong> — open it, read it, teach it. No planning required beyond the five minutes before circle time.</span>
+            </li>
+            <li>
+              <span class="check">&#10003;</span>
+              <span><strong>Builds real skills</strong> — social skills, executive functioning, communication, and classroom connection. Not just feelings charts.</span>
+            </li>
+            <li>
+              <span class="check">&#10003;</span>
+              <span><strong>Montessori-inspired</strong> — hands-on, child-led, and grounded in how young children actually develop.</span>
+            </li>
+            <li>
+              <span class="check">&#10003;</span>
+              <span><strong>Discussion guides included</strong> — teachers have everything they need to lead real conversations about kindness, friendship, and courage.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="solution-image">
+          <img src="images/illus-3.svg" alt="Diverse children reading and learning together" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THEMES / UNITS -->
+  <div class="section-wrap navy">
+    <div class="section-inner" style="text-align: center;">
+      <span class="section-label">9 Units. One Big Year.</span>
+      <h2>Every theme your preschool community cares about — taught through story.</h2>
+      <p class="section-intro" style="margin: 16px auto 0;">Each unit gives teachers a complete, ready-to-run lesson built around a Little Dude book. The themes build on each other all year, creating a shared classroom language every child carries home.</p>
+      <div class="themes-strip">
+        <span class="theme-tag">Kindness</span>
+        <span class="theme-tag">Feelings</span>
+        <span class="theme-tag">Manners</span>
+        <span class="theme-tag">Respect</span>
+        <span class="theme-tag">Friendship</span>
+        <span class="theme-tag">Courage</span>
+        <span class="theme-tag">Mindfulness</span>
+        <span class="theme-tag">Growth Mindset</span>
+        <span class="theme-tag">Empathy</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT'S INCLUDED -->
+  <div class="section-wrap white">
+    <div class="section-inner">
+      <span class="section-label">What You Get</span>
+      <h2>Everything your school needs. Nothing you don't.</h2>
+      <p class="section-intro">Designed for private preschools that value quality, intentionality, and a classroom culture where every child feels they belong.</p>
+      <div class="included-grid">
+        <div class="included-card">
+          <img src="images/illus-1.svg" alt="Little Dude as a teacher with books and an apple" />
+          <h3>9-Book Series</h3>
+          <p>Beautifully illustrated stories featuring Little Dude — a real therapy dog who inspired it all.</p>
+        </div>
+        <div class="included-card">
+          <img src="images/illus-2.svg" alt="Diverse characters from the humanKIND world" />
+          <h3>Ready-to-Teach Lessons</h3>
+          <p>A complete lesson plan for each unit. Open it Monday morning and teach it Monday morning.</p>
+        </div>
+        <div class="included-card">
+          <img src="images/illus-3.svg" alt="Little Dude and bird in different emotional moments" />
+          <h3>Discussion Guides</h3>
+          <p>Age-appropriate prompts that spark real conversation — without putting teachers on the spot.</p>
+        </div>
+        <div class="included-card">
+          <img src="images/illus-4.svg" alt="Sunny joyful scene with Little Dude" />
+          <h3>Hands-On Activities</h3>
+          <p>Screen-free, play-based extensions that reinforce each lesson in the way young children learn best.</p>
+        </div>
+        <div class="included-card">
+          <img src="images/illus-5.svg" alt="Children reading and connecting together" />
+          <h3>Classroom Culture Tools</h3>
+          <p>Resources to build belonging, kindness, and connection across your whole school community — all year.</p>
+        </div>
+        <div class="included-card">
+          <img src="images/illus-6.svg" alt="Little Dude running joyfully" />
+          <h3>Little Dude Magic</h3>
+          <p>Therapy-dog-inspired strategies that create calm, connection, and joy — even without a dog in the room.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHO IT'S FOR -->
+  <div class="section-wrap cream">
+    <div class="section-inner">
+      <div class="for-layout">
+        <div>
+          <span class="section-label">Made For You</span>
+          <h2>If you run a private preschool that cares about the whole child — this is your curriculum.</h2>
+          <p style="font-size: 1rem; color: #666; line-height: 1.75; margin-top: 14px;">humanKIND works in any early childhood setting where teachers are stretched thin and directors want something that goes beyond the alphabet. It's for programs that believe kindness is worth teaching — and that connection is the foundation of everything else.</p>
+          <ul class="for-list">
+            <li><span class="for-dot"></span> Private preschools and early childhood centers</li>
+            <li><span class="for-dot"></span> Montessori and play-based programs</li>
+            <li><span class="for-dot"></span> Reggio-inspired classrooms</li>
+            <li><span class="for-dot"></span> Pre-K and transitional kindergarten programs</li>
+            <li><span class="for-dot"></span> Homeschool co-ops and parent-led programs</li>
+          </ul>
+        </div>
+        <div class="for-image">
+          <img src="images/illus-4.svg" alt="Little Dude being held with warmth and care" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="section-wrap white">
+    <div class="section-inner">
+      <span class="section-label">From the Classroom</span>
+      <h2>Real words from real educators.</h2>
+      <div class="testimonial-grid" style="margin-top: 44px;">
+        <div class="testimonial-card">
+          <span class="quote-mark">"</span>
+          <p>This is the first curriculum I've used that my teachers actually get excited about on Monday mornings. It's warm, it's simple, and the kids are completely obsessed with Little Dude.</p>
+          <div class="testimonial-author">Sarah M.</div>
+          <div class="testimonial-role">Director, Private Preschool — New York</div>
+        </div>
+        <div class="testimonial-card">
+          <span class="quote-mark">"</span>
+          <p>Within two weeks I noticed a real shift. The children were using the language from the lessons — talking to each other the way Little Dude talks to his friends. I was floored.</p>
+          <div class="testimonial-author">Jennifer K.</div>
+          <div class="testimonial-role">Lead Teacher, Pre-K Program</div>
+        </div>
+        <div class="testimonial-card">
+          <span class="quote-mark">"</span>
+          <p>We've tried so many things. This one stuck because it doesn't feel like a program. It feels like storytime — and that's exactly what four-year-olds need.</p>
+          <div class="testimonial-author">Maria L.</div>
+          <div class="testimonial-role">Curriculum Coordinator, Early Childhood Center</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section-wrap" id="sample">
+    <div class="section-inner">
+      <div class="cta-layout">
+        <div>
+          <span class="section-label" style="color: var(--golden);">Ready to See It?</span>
+          <h2>Start with a free sample lesson. No strings attached.</h2>
+          <p>Download a complete sample lesson and see exactly what humanKIND looks like in a preschool classroom — before you buy a thing. Or skip ahead and book a quick call to talk through what your school needs.</p>
+          <div class="cta-buttons">
+            <a href="#" class="btn-white">Download a Free Sample</a>
+            <a href="https://calendly.com/worldoflittledude" target="_blank" class="btn-outline">Book a 20-Min Call</a>
+          </div>
+          <p class="small-note">No spam. Just a sample lesson and a real conversation about your school.</p>
+        </div>
+        <div class="cta-image">
+          <img src="images/illus-5.svg" alt="Little Dude running with joy" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="images/logo.svg" alt="humanKIND Classroom" style="height: 56px; width: auto; filter: brightness(0) invert(1); opacity: 0.9;" />
+    </div>
+    <p>Building foundations for social skills and executive functioning in early childhood.</p>
+    <p style="margin-top: 14px;"><a href="about.html">About</a> &nbsp;&middot;&nbsp; <a href="work-with-us.html">Work With Us</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@humankindclassroom.com">hello@humankindclassroom.com</a></p>
+    <p style="margin-top: 20px; opacity: 0.4; font-size: 0.78rem;">&copy; 2026 humanKIND Classroom. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
