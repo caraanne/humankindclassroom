@@ -133,6 +133,67 @@
     .btn-golden { background: var(--golden); color: var(--brown); }
     .btn-white { background: white; color: var(--dusty-navy); }
 
+    /* ===== POP-UP ===== */
+    .popup-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5); z-index: 1000;
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .popup-overlay.open { display: flex; }
+
+    .popup-box {
+      background: white; border-radius: 24px;
+      max-width: 480px; width: 100%; padding: 48px 40px 40px;
+      position: relative; box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .popup-close {
+      position: absolute; top: 16px; right: 20px;
+      background: none; border: none; font-size: 1.5rem;
+      cursor: pointer; color: #aaa; line-height: 1;
+    }
+    .popup-close:hover { color: var(--brown); }
+
+    .popup-badge {
+      display: inline-block; background: var(--blush); color: var(--brown);
+      font-weight: 700; font-size: 0.78rem; padding: 5px 14px;
+      border-radius: 50px; margin-bottom: 16px;
+      text-transform: uppercase; letter-spacing: 0.8px;
+    }
+
+    .popup-box h3 {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: 1.5rem; color: var(--dusty-navy); margin-bottom: 10px;
+    }
+
+    .popup-box p {
+      font-size: 0.92rem; color: #777; margin-bottom: 24px;
+    }
+
+    .popup-box .form-group { text-align: left; margin-bottom: 14px; }
+
+    .popup-box .form-group label {
+      display: block; font-size: 0.83rem;
+      font-weight: 700; color: var(--brown); margin-bottom: 6px;
+    }
+
+    .popup-box .form-group input {
+      width: 100%; padding: 11px 16px;
+      border: 2px solid #e8e0d0; border-radius: 10px;
+      font-size: 0.92rem; font-family: 'Nunito Sans', sans-serif;
+      background: white; color: var(--brown);
+    }
+
+    .popup-box .form-group input:focus {
+      outline: none; border-color: var(--teal-green);
+    }
+
+    .popup-small {
+      font-size: 0.78rem !important; color: #bbb !important;
+      margin-top: 12px !important; margin-bottom: 0 !important;
+    }
+
     /* ===== HERO ===== */
     .hero { background: var(--cream); padding: 80px 0 60px; }
 
@@ -656,6 +717,26 @@
 </head>
 <body>
 
+<!-- FREE BOOK POP-UP -->
+<div class="popup-overlay" id="bookPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()" aria-label="Close">&times;</button>
+    <span class="popup-badge">Free Download</span>
+    <h3>The Magic of Being Kind</h3>
+    <p>Get the first Little Dude book plus the full lesson plans — free. Enter your details and we'll send them straight to your inbox.</p>
+    <div class="form-group">
+      <label>First name</label>
+      <input type="text" placeholder="Your first name" />
+    </div>
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" placeholder="you@school.com" />
+    </div>
+    <a href="#" class="btn btn-green" style="width:100%;text-align:center;display:block;margin-top:8px;">Send Me the Free Book &amp; Lesson Plans</a>
+    <p class="popup-small">No spam. Just kind things.</p>
+  </div>
+</div>
+
 <!-- HEADER -->
 <header>
   <a href="#" class="header-logo">
@@ -693,10 +774,10 @@
         <h1>Simple routines that build social skills in real time.</h1>
         <p>humanKIND Classroom&#8482; is a story-based program that helps children practise communication, self-regulation, friendship and other essential classroom skills without adding complicated training or preparation to a teacher's day.</p>
         <div class="hero-buttons">
-          <a href="#free-program" class="btn btn-green">Apply for Free Access</a>
+          <a href="#" class="btn btn-green" onclick="openPopup();return false;">Download the Free Book + Lesson Plans</a>
           <a href="#pricing" class="btn btn-outline">Explore the Options</a>
         </div>
-        <p class="hero-supporting">For educators working in early childhood classrooms. Apply below and Cara will be in touch.</p>
+        <p class="hero-supporting">Get The Magic of Being Kind — the first Little Dude book and lesson plans, free.</p>
       </div>
       <div class="hero-image">
         <img src="images-for-upload/brand-3.png" alt="Child reading with Little Dude" />
@@ -1136,6 +1217,25 @@
 </footer>
 
 <script>
+  // Pop-up
+  function openPopup() {
+    document.getElementById('bookPopup').classList.add('open');
+  }
+  function closePopup() {
+    document.getElementById('bookPopup').classList.remove('open');
+  }
+  // Close if clicking outside the box
+  document.getElementById('bookPopup').addEventListener('click', function(e) {
+    if (e.target === this) closePopup();
+  });
+  // Auto-open after 15 seconds (only once per session)
+  if (!sessionStorage.getItem('popupShown')) {
+    setTimeout(function() {
+      openPopup();
+      sessionStorage.setItem('popupShown', '1');
+    }, 15000);
+  }
+
   function toggleMenu() {
     document.getElementById('mobileNav').classList.toggle('open');
   }
