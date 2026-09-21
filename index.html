@@ -726,13 +726,14 @@
     <p>Get the first Little Dude book plus the full lesson plans — free. Enter your details and we'll send them straight to your inbox.</p>
     <div class="form-group">
       <label>First name</label>
-      <input type="text" placeholder="Your first name" />
+      <input type="text" id="bookFirstName" placeholder="Your first name" />
     </div>
     <div class="form-group">
       <label>Email address</label>
-      <input type="email" placeholder="you@school.com" />
+      <input type="email" id="bookEmail" placeholder="you@school.com" />
     </div>
-    <a href="#" class="btn btn-green" style="width:100%;text-align:center;display:block;margin-top:8px;">Send Me the Free Book &amp; Lesson Plans</a>
+    <div id="bookFormMsg" style="display:none;color:var(--teal-green);font-weight:700;margin:12px 0;font-size:0.95rem;">🎉 Check your inbox — it's on its way!</div>
+    <a href="#" class="btn btn-green" id="bookSubmitBtn" onclick="submitBookForm();return false;" style="width:100%;text-align:center;display:block;margin-top:8px;">Send Me the Free Book &amp; Lesson Plans</a>
     <p class="popup-small">No spam. Just kind things.</p>
   </div>
 </div>
@@ -1217,6 +1218,43 @@
 </footer>
 
 <script>
+  // Systeme.io form submission
+  async function submitBookForm() {
+    var firstName = document.getElementById('bookFirstName').value.trim();
+    var email = document.getElementById('bookEmail').value.trim();
+    if (!firstName || !email) {
+      alert('Please fill in both your name and email!');
+      return;
+    }
+    var btn = document.getElementById('bookSubmitBtn');
+    btn.textContent = 'Sending...';
+    try {
+      var response = await fetch('https://api.systeme.io/api/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-API-Key': '0k2f2nz5pqjzdtkwr5to2svu4dwq4qs8552a0jlh2h4tmhuqqrrj4g23c0m1af4a'
+        },
+        body: JSON.stringify({
+          email: email,
+          firstName: firstName,
+          tags: [{ name: 'free-book-download' }]
+        })
+      });
+      if (response.ok || response.status === 409) {
+        btn.style.display = 'none';
+        document.getElementById('bookFormMsg').style.display = 'block';
+        setTimeout(closePopup, 4000);
+      } else {
+        btn.textContent = 'Send Me the Free Book & Lesson Plans';
+        alert('Something went wrong — please try again!');
+      }
+    } catch(e) {
+      btn.textContent = 'Send Me the Free Book & Lesson Plans';
+      alert('Something went wrong — please try again!');
+    }
+  }
+
   // Pop-up
   function openPopup() {
     document.getElementById('bookPopup').classList.add('open');
