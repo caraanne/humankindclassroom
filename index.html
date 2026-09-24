@@ -1252,19 +1252,27 @@
 
     // Submit to Systeme.io hidden form
     function findAndSubmitApplyForm() {
+      // Look for ALL forms, skip our visible ones and the free book wrapper
       var allForms = document.querySelectorAll('form');
       var sysForm = null;
       for (var i = 0; i < allForms.length; i++) {
-        if (allForms[i].closest('#bookPopup') || allForms[i].closest('#sys-inline-wrapper')) continue;
-        if (allForms[i].querySelector('input[type="email"]')) { sysForm = allForms[i]; break; }
+        if (allForms[i].closest('#bookPopup')) continue;
+        if (allForms[i].closest('#sys-inline-wrapper')) continue;
+        if (allForms[i].closest('.form-card')) continue;
+        if (allForms[i].querySelector('input[type="email"]')) {
+          sysForm = allForms[i];
+          break;
+        }
       }
+      // Fallback: find any email input outside our visible forms
       if (!sysForm) {
         var emailInputs = document.querySelectorAll('input[type="email"]');
         for (var j = 0; j < emailInputs.length; j++) {
-          if (!emailInputs[j].closest('#bookPopup') && !emailInputs[j].closest('#sys-inline-wrapper') && !emailInputs[j].closest('.form-card')) {
-            sysForm = emailInputs[j].closest('form') || emailInputs[j].parentElement;
-            break;
-          }
+          var inp = emailInputs[j];
+          if (inp.closest('#bookPopup')) continue;
+          if (inp.closest('.form-card')) continue;
+          sysForm = inp.closest('form') || inp.parentElement;
+          break;
         }
       }
       if (sysForm) {
@@ -1273,8 +1281,7 @@
         if (emailField) { emailField.value = email; emailField.dispatchEvent(new Event('input', {bubbles:true})); emailField.dispatchEvent(new Event('change', {bubbles:true})); }
         if (nameField) { nameField.value = firstName; nameField.dispatchEvent(new Event('input', {bubbles:true})); nameField.dispatchEvent(new Event('change', {bubbles:true})); }
         var btn = sysForm.querySelector('button[type="submit"], input[type="submit"], button');
-        if (btn) btn.click();
-        return true;
+        if (btn) { btn.click(); return true; }
       }
       return false;
     }
@@ -1301,23 +1308,24 @@
     // Find the Systeme.io hidden form (could be anywhere in the DOM)
     function findAndSubmitSysForm() {
       var sysForm = null;
-      var allForms = document.querySelectorAll('form');
-      for (var i = 0; i < allForms.length; i++) {
-        // Skip our popup's form area
-        if (allForms[i].closest('#bookPopup')) continue;
-        if (allForms[i].querySelector('input[type="email"]')) {
-          sysForm = allForms[i];
-          break;
+      // Only look inside the free book wrapper
+      var wrapper = document.getElementById('sys-inline-wrapper');
+      if (wrapper) {
+        var wrapperForms = wrapper.querySelectorAll('form');
+        if (wrapperForms.length > 0) sysForm = wrapperForms[0];
+        if (!sysForm) {
+          var wrapperEmails = wrapper.querySelectorAll('input[type="email"]');
+          if (wrapperEmails.length > 0) sysForm = wrapperEmails[0].closest('form') || wrapperEmails[0].parentElement;
         }
       }
-      // Also try finding outside forms via input fields
+      // Fallback: find form outside popup and outside application form
       if (!sysForm) {
-        var emailInputs = document.querySelectorAll('input[type="email"]');
-        for (var j = 0; j < emailInputs.length; j++) {
-          if (!emailInputs[j].closest('#bookPopup')) {
-            sysForm = emailInputs[j].closest('form') || emailInputs[j].parentElement;
-            break;
-          }
+        var allForms = document.querySelectorAll('form');
+        for (var i = 0; i < allForms.length; i++) {
+          if (allForms[i].closest('#bookPopup')) continue;
+          if (allForms[i].closest('.form-card')) continue;
+          if (allForms[i].closest('#sys-apply-wrapper')) continue;
+          if (allForms[i].querySelector('input[type="email"]')) { sysForm = allForms[i]; break; }
         }
       }
       if (sysForm) {
