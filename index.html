@@ -718,8 +718,10 @@
 <body>
 
 <!-- FREE BOOK POP-UP -->
-<!-- Systeme.io inline form script (runs hidden in background) -->
+<!-- Systeme.io inline form — hidden, used as background connector -->
+<div id="sys-inline-wrapper" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;" aria-hidden="true">
 <script id="form-script-tag-25579516" src="https://worldoflittledude.systeme.io/public/remote/page/44996928ed4b7defd3e56239c4e6c133d29fce1e.js"></script>
+</div>
 <div class="popup-overlay" id="bookPopup">
   <div class="popup-box">
     <button class="popup-close" onclick="closePopup()" aria-label="Close">&times;</button>
@@ -1229,33 +1231,57 @@
       return;
     }
 
-    // Find the hidden Systeme.io form fields and fill them
-    var sysForm = document.querySelector('.so-widget-soi-form, [data-widget-type="optin"], form[id*="optin"], .soi-form form, form.so-widget-form');
-    if (!sysForm) {
-      // Try finding by input type
+    // Show success message immediately
+    document.getElementById('bookSubmitBtn').style.display = 'none';
+    document.getElementById('bookFormMsg').style.display = 'block';
+
+    // Find the Systeme.io hidden form (could be anywhere in the DOM)
+    function findAndSubmitSysForm() {
+      var sysForm = null;
       var allForms = document.querySelectorAll('form');
       for (var i = 0; i < allForms.length; i++) {
-        if (allForms[i].querySelector('input[type="email"]') && allForms[i].id !== 'bookForm') {
+        // Skip our popup's form area
+        if (allForms[i].closest('#bookPopup')) continue;
+        if (allForms[i].querySelector('input[type="email"]')) {
           sysForm = allForms[i];
           break;
         }
       }
+      // Also try finding outside forms via input fields
+      if (!sysForm) {
+        var emailInputs = document.querySelectorAll('input[type="email"]');
+        for (var j = 0; j < emailInputs.length; j++) {
+          if (!emailInputs[j].closest('#bookPopup')) {
+            sysForm = emailInputs[j].closest('form') || emailInputs[j].parentElement;
+            break;
+          }
+        }
+      }
+      if (sysForm) {
+        var emailField = sysForm.querySelector('input[type="email"]') || sysForm.querySelector('input[name*="email"]');
+        var nameField = sysForm.querySelector('input[type="text"]') || sysForm.querySelector('input[name*="name"]') || sysForm.querySelector('input[name*="first"]');
+        if (emailField) {
+          emailField.value = email;
+          emailField.dispatchEvent(new Event('input', {bubbles:true}));
+          emailField.dispatchEvent(new Event('change', {bubbles:true}));
+        }
+        if (nameField) {
+          nameField.value = firstName;
+          nameField.dispatchEvent(new Event('input', {bubbles:true}));
+          nameField.dispatchEvent(new Event('change', {bubbles:true}));
+        }
+        var submitBtn = sysForm.querySelector('button[type="submit"], input[type="submit"], button');
+        if (submitBtn) submitBtn.click();
+        return true;
+      }
+      return false;
     }
 
-    if (sysForm) {
-      // Fill in the Systeme.io form fields
-      var nameField = sysForm.querySelector('input[name*="first"], input[placeholder*="name" i], input[type="text"]');
-      var emailField = sysForm.querySelector('input[type="email"]');
-      if (nameField) { nameField.value = firstName; nameField.dispatchEvent(new Event('input', {bubbles:true})); }
-      if (emailField) { emailField.value = email; emailField.dispatchEvent(new Event('input', {bubbles:true})); }
-      // Submit the Systeme.io form
-      var submitBtn = sysForm.querySelector('button[type="submit"], input[type="submit"], button');
-      if (submitBtn) submitBtn.click();
+    // Try immediately, then retry after short delay to allow script to fully render
+    if (!findAndSubmitSysForm()) {
+      setTimeout(findAndSubmitSysForm, 1500);
     }
 
-    // Show success message and close popup
-    document.getElementById('bookSubmitBtn').style.display = 'none';
-    document.getElementById('bookFormMsg').style.display = 'block';
     setTimeout(closePopup, 4000);
   }
 
