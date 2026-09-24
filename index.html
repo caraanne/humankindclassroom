@@ -718,10 +718,6 @@
 <body>
 
 <!-- FREE BOOK POP-UP -->
-<!-- Systeme.io inline form — hidden, used as background connector -->
-<div id="sys-inline-wrapper" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;" aria-hidden="true">
-<script id="form-script-tag-25579516" src="https://worldoflittledude.systeme.io/public/remote/page/44996928ed4b7defd3e56239c4e6c133d29fce1e.js"></script>
-</div>
 <div class="popup-overlay" id="bookPopup">
   <div class="popup-box">
     <button class="popup-close" onclick="closePopup()" aria-label="Close">&times;</button>
@@ -976,10 +972,6 @@
         <img src="images-for-upload/brand-7.png" alt="Little Dude with books" style="width:100%;max-width:340px;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.08));" />
       </div>
       <div>
-        <!-- Systeme.io inline form for application (hidden background connector) -->
-        <div id="sys-apply-wrapper" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;" aria-hidden="true">
-        <script id="form-script-tag-25581254" src="https://worldoflittledude.systeme.io/public/remote/page/45004968b3669661fdf42c870b076fee8d24004c.js"></script>
-        </div>
         <div class="form-card">
           <h3>Apply for free access</h3>
           <div id="applyFormMsg" style="display:none;color:var(--teal-green);font-weight:700;margin-bottom:16px;font-size:0.95rem;text-align:center;">🎉 Application received! Check your inbox for next steps.</div>
@@ -1227,6 +1219,13 @@
 </footer>
 
 <script>
+  // Send email to Systeme.io via their embedded form POST URL
+  function postToSysteme(actionUrl, email) {
+    var formData = new FormData();
+    formData.append('email', email);
+    fetch(actionUrl, { method: 'POST', body: formData, mode: 'no-cors' });
+  }
+
   // Application form submission
   function submitApplyForm() {
     var firstName = document.getElementById('applyFirstName').value.trim();
@@ -1238,8 +1237,9 @@
       alert('Please fill in your name, email and role!');
       return;
     }
-
-    // Send notification email to Cara via Formspree
+    // Send to Systeme.io
+    postToSysteme('https://systeme.io/embedded/45004968/subscription', email);
+    // Send notification to Cara via Formspree
     fetch('https://formspree.io/f/moevlkda', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
@@ -1249,50 +1249,12 @@
         _subject: 'New Application — humanKIND Classroom'
       })
     });
-
-    // Submit to Systeme.io hidden form
-    function findAndSubmitApplyForm() {
-      // Look for ALL forms, skip our visible ones and the free book wrapper
-      var allForms = document.querySelectorAll('form');
-      var sysForm = null;
-      for (var i = 0; i < allForms.length; i++) {
-        if (allForms[i].closest('#bookPopup')) continue;
-        if (allForms[i].closest('#sys-inline-wrapper')) continue;
-        if (allForms[i].closest('.form-card')) continue;
-        if (allForms[i].querySelector('input[type="email"]')) {
-          sysForm = allForms[i];
-          break;
-        }
-      }
-      // Fallback: find any email input outside our visible forms
-      if (!sysForm) {
-        var emailInputs = document.querySelectorAll('input[type="email"]');
-        for (var j = 0; j < emailInputs.length; j++) {
-          var inp = emailInputs[j];
-          if (inp.closest('#bookPopup')) continue;
-          if (inp.closest('.form-card')) continue;
-          sysForm = inp.closest('form') || inp.parentElement;
-          break;
-        }
-      }
-      if (sysForm) {
-        var emailField = sysForm.querySelector('input[type="email"]');
-        var nameField = sysForm.querySelector('input[type="text"]');
-        if (emailField) { emailField.value = email; emailField.dispatchEvent(new Event('input', {bubbles:true})); emailField.dispatchEvent(new Event('change', {bubbles:true})); }
-        if (nameField) { nameField.value = firstName; nameField.dispatchEvent(new Event('input', {bubbles:true})); nameField.dispatchEvent(new Event('change', {bubbles:true})); }
-        var btn = sysForm.querySelector('button[type="submit"], input[type="submit"], button');
-        if (btn) { btn.click(); return true; }
-      }
-      return false;
-    }
-    if (!findAndSubmitApplyForm()) { setTimeout(findAndSubmitApplyForm, 1500); }
-
     // Show success
     document.getElementById('applySubmitBtn').style.display = 'none';
     document.getElementById('applyFormMsg').style.display = 'block';
   }
 
-  // Free book form submission — bridges our popup to the hidden Systeme.io inline form
+  // Free book popup form submission
   function submitBookForm() {
     var firstName = document.getElementById('bookFirstName').value.trim();
     var email = document.getElementById('bookEmail').value.trim();
@@ -1300,59 +1262,11 @@
       alert('Please fill in both your name and email!');
       return;
     }
-
-    // Show success message immediately
+    // Send to Systeme.io
+    postToSysteme('https://systeme.io/embedded/44996928/subscription', email);
+    // Show success
     document.getElementById('bookSubmitBtn').style.display = 'none';
     document.getElementById('bookFormMsg').style.display = 'block';
-
-    // Find the Systeme.io hidden form (could be anywhere in the DOM)
-    function findAndSubmitSysForm() {
-      var sysForm = null;
-      // Only look inside the free book wrapper
-      var wrapper = document.getElementById('sys-inline-wrapper');
-      if (wrapper) {
-        var wrapperForms = wrapper.querySelectorAll('form');
-        if (wrapperForms.length > 0) sysForm = wrapperForms[0];
-        if (!sysForm) {
-          var wrapperEmails = wrapper.querySelectorAll('input[type="email"]');
-          if (wrapperEmails.length > 0) sysForm = wrapperEmails[0].closest('form') || wrapperEmails[0].parentElement;
-        }
-      }
-      // Fallback: find form outside popup and outside application form
-      if (!sysForm) {
-        var allForms = document.querySelectorAll('form');
-        for (var i = 0; i < allForms.length; i++) {
-          if (allForms[i].closest('#bookPopup')) continue;
-          if (allForms[i].closest('.form-card')) continue;
-          if (allForms[i].closest('#sys-apply-wrapper')) continue;
-          if (allForms[i].querySelector('input[type="email"]')) { sysForm = allForms[i]; break; }
-        }
-      }
-      if (sysForm) {
-        var emailField = sysForm.querySelector('input[type="email"]') || sysForm.querySelector('input[name*="email"]');
-        var nameField = sysForm.querySelector('input[type="text"]') || sysForm.querySelector('input[name*="name"]') || sysForm.querySelector('input[name*="first"]');
-        if (emailField) {
-          emailField.value = email;
-          emailField.dispatchEvent(new Event('input', {bubbles:true}));
-          emailField.dispatchEvent(new Event('change', {bubbles:true}));
-        }
-        if (nameField) {
-          nameField.value = firstName;
-          nameField.dispatchEvent(new Event('input', {bubbles:true}));
-          nameField.dispatchEvent(new Event('change', {bubbles:true}));
-        }
-        var submitBtn = sysForm.querySelector('button[type="submit"], input[type="submit"], button');
-        if (submitBtn) submitBtn.click();
-        return true;
-      }
-      return false;
-    }
-
-    // Try immediately, then retry after short delay to allow script to fully render
-    if (!findAndSubmitSysForm()) {
-      setTimeout(findAndSubmitSysForm, 1500);
-    }
-
     setTimeout(closePopup, 4000);
   }
 
