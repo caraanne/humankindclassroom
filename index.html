@@ -976,19 +976,24 @@
         <img src="images-for-upload/brand-7.png" alt="Little Dude with books" style="width:100%;max-width:340px;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.08));" />
       </div>
       <div>
+        <!-- Systeme.io inline form for application (hidden background connector) -->
+        <div id="sys-apply-wrapper" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;" aria-hidden="true">
+        <script id="form-script-tag-25581254" src="https://worldoflittledude.systeme.io/public/remote/page/45004968b3669661fdf42c870b076fee8d24004c.js"></script>
+        </div>
         <div class="form-card">
           <h3>Apply for free access</h3>
+          <div id="applyFormMsg" style="display:none;color:var(--teal-green);font-weight:700;margin-bottom:16px;font-size:0.95rem;text-align:center;">🎉 Application received! Check your inbox for next steps.</div>
           <div class="form-group">
             <label>First name</label>
-            <input type="text" placeholder="Your first name" required />
+            <input type="text" id="applyFirstName" placeholder="Your first name" required />
           </div>
           <div class="form-group">
             <label>Email address</label>
-            <input type="email" placeholder="you@school.com" required />
+            <input type="email" id="applyEmail" placeholder="you@school.com" required />
           </div>
           <div class="form-group">
             <label>Role</label>
-            <select required>
+            <select id="applyRole" required>
               <option value="">Select your role</option>
               <option>Classroom teacher</option>
               <option>School director or administrator</option>
@@ -999,11 +1004,11 @@
           </div>
           <div class="form-group">
             <label>School or organization <span class="label-optional">Optional</span></label>
-            <input type="text" placeholder="School name" />
+            <input type="text" id="applySchool" placeholder="School name" />
           </div>
           <div class="form-group">
             <label>Grade or age group <span class="label-optional">Optional</span></label>
-            <select>
+            <select id="applyGrade">
               <option value="">Select grade or age group</option>
               <option>Pre-K (ages 4 to 5)</option>
               <option>Kindergarten (ages 5 to 6)</option>
@@ -1011,7 +1016,7 @@
               <option>Mixed age group</option>
             </select>
           </div>
-          <a href="#" class="btn btn-green" style="width:100%;text-align:center;display:block;">Submit My Application</a>
+          <a href="#" class="btn btn-green" id="applySubmitBtn" onclick="submitApplyForm();return false;" style="width:100%;text-align:center;display:block;">Submit My Application</a>
           <p class="form-small">For educators working in early childhood classrooms. Cara will be in touch within 48 hours.</p>
           <p class="share-note">Know an educator who would love this? Send them to humankindclassroom.com to apply.</p>
         </div>
@@ -1222,6 +1227,64 @@
 </footer>
 
 <script>
+  // Application form submission
+  function submitApplyForm() {
+    var firstName = document.getElementById('applyFirstName').value.trim();
+    var email = document.getElementById('applyEmail').value.trim();
+    var role = document.getElementById('applyRole').value;
+    var school = document.getElementById('applySchool').value.trim();
+    var grade = document.getElementById('applyGrade').value;
+    if (!firstName || !email || !role) {
+      alert('Please fill in your name, email and role!');
+      return;
+    }
+
+    // Send notification email to Cara via Formspree
+    fetch('https://formspree.io/f/xrbkopvq', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({
+        name: firstName, email: email, role: role,
+        school: school || 'Not provided', grade: grade || 'Not provided',
+        _subject: 'New Application — humanKIND Classroom'
+      })
+    });
+
+    // Submit to Systeme.io hidden form
+    function findAndSubmitApplyForm() {
+      var allForms = document.querySelectorAll('form');
+      var sysForm = null;
+      for (var i = 0; i < allForms.length; i++) {
+        if (allForms[i].closest('#bookPopup') || allForms[i].closest('#sys-inline-wrapper')) continue;
+        if (allForms[i].querySelector('input[type="email"]')) { sysForm = allForms[i]; break; }
+      }
+      if (!sysForm) {
+        var emailInputs = document.querySelectorAll('input[type="email"]');
+        for (var j = 0; j < emailInputs.length; j++) {
+          if (!emailInputs[j].closest('#bookPopup') && !emailInputs[j].closest('#sys-inline-wrapper') && !emailInputs[j].closest('.form-card')) {
+            sysForm = emailInputs[j].closest('form') || emailInputs[j].parentElement;
+            break;
+          }
+        }
+      }
+      if (sysForm) {
+        var emailField = sysForm.querySelector('input[type="email"]');
+        var nameField = sysForm.querySelector('input[type="text"]');
+        if (emailField) { emailField.value = email; emailField.dispatchEvent(new Event('input', {bubbles:true})); emailField.dispatchEvent(new Event('change', {bubbles:true})); }
+        if (nameField) { nameField.value = firstName; nameField.dispatchEvent(new Event('input', {bubbles:true})); nameField.dispatchEvent(new Event('change', {bubbles:true})); }
+        var btn = sysForm.querySelector('button[type="submit"], input[type="submit"], button');
+        if (btn) btn.click();
+        return true;
+      }
+      return false;
+    }
+    if (!findAndSubmitApplyForm()) { setTimeout(findAndSubmitApplyForm, 1500); }
+
+    // Show success
+    document.getElementById('applySubmitBtn').style.display = 'none';
+    document.getElementById('applyFormMsg').style.display = 'block';
+  }
+
   // Free book form submission — bridges our popup to the hidden Systeme.io inline form
   function submitBookForm() {
     var firstName = document.getElementById('bookFirstName').value.trim();
