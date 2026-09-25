@@ -1074,15 +1074,16 @@
     </div>
     <div class="inquiry-form">
       <h3>Discuss a school partnership</h3>
+      <div id="schoolFormMsg" style="display:none;color:#4AA694;font-weight:700;margin-bottom:16px;font-size:0.95rem;text-align:center;">🎉 Thank you! We'll be in touch within 48 hours.</div>
       <div class="form-row">
-        <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" /></div>
-        <div class="form-group"><label>Email</label><input type="email" placeholder="you@school.com" /></div>
+        <div class="form-group"><label>Name</label><input type="text" id="schoolName" placeholder="Your name" /></div>
+        <div class="form-group"><label>Email</label><input type="email" id="schoolEmail" placeholder="you@school.com" /></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>School or organization</label><input type="text" placeholder="School name" /></div>
+        <div class="form-group"><label>School or organization</label><input type="text" id="schoolOrg" placeholder="School name" /></div>
         <div class="form-group">
           <label>Number of classrooms</label>
-          <select>
+          <select id="schoolClassrooms">
             <option value="">Select range</option>
             <option>1 to 5</option><option>6 to 10</option>
             <option>11 to 20</option><option>More than 20</option>
@@ -1091,7 +1092,7 @@
       </div>
       <div class="form-group">
         <label>Support needed</label>
-        <select>
+        <select id="schoolSupport">
           <option value="">Select type of support</option>
           <option>Virtual humanKIND Classroom Lab</option>
           <option>In-person humanKIND Classroom Lab</option>
@@ -1102,9 +1103,9 @@
       </div>
       <div class="form-group">
         <label>Anything else you would like to share</label>
-        <textarea placeholder="Tell us about your school and what you are hoping humanKIND Classroom can help with"></textarea>
+        <textarea id="schoolMessage" placeholder="Tell us about your school and what you are hoping humanKIND Classroom can help with"></textarea>
       </div>
-      <a href="#" class="btn btn-golden">Discuss a School Partnership</a>
+      <a href="#" class="btn btn-golden" id="schoolSubmitBtn" onclick="submitSchoolForm();return false;">Discuss a School Partnership</a>
     </div>
   </div>
 </section>
@@ -1219,6 +1220,32 @@
 </footer>
 
 <script>
+  // School partnership form submission
+  function submitSchoolForm() {
+    var name = document.getElementById('schoolName').value.trim();
+    var email = document.getElementById('schoolEmail').value.trim();
+    var org = document.getElementById('schoolOrg').value.trim();
+    var classrooms = document.getElementById('schoolClassrooms').value;
+    var support = document.getElementById('schoolSupport').value;
+    var message = document.getElementById('schoolMessage').value.trim();
+    if (!name || !email) { alert('Please fill in your name and email!'); return; }
+    // Send to Systeme.io
+    postToSysteme('https://systeme.io/embedded/45025291/subscription', email);
+    // Send notification to Cara via Formspree
+    fetch('https://formspree.io/f/moevlkda', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({
+        name: name, email: email, school: org || 'Not provided',
+        classrooms: classrooms || 'Not provided', support: support || 'Not provided',
+        message: message || 'Not provided',
+        _subject: 'New School Partnership Inquiry — humanKIND Classroom'
+      })
+    });
+    document.getElementById('schoolSubmitBtn').style.display = 'none';
+    document.getElementById('schoolFormMsg').style.display = 'block';
+  }
+
   // Send email to Systeme.io via their embedded form POST URL
   function postToSysteme(actionUrl, email) {
     var formData = new FormData();
