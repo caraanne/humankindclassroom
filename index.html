@@ -54,11 +54,11 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.07);
       padding: 0 40px;
       display: flex; align-items: center; justify-content: space-between;
-      height: 96px;
+      height: 120px;
     }
 
     .header-logo img {
-      height: 88px; width: auto; display: block;
+      height: 110px; width: auto; display: block;
       mix-blend-mode: multiply;
     }
 
@@ -657,11 +657,8 @@
       gap: 48px; margin-bottom: 40px;
     }
 
-    .footer-logo {
-      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
-    }
     .footer-logo img {
-      height: 200px; width: auto;
+      width: 100%; max-width: 280px; height: auto;
     }
 
     .footer-tagline { font-size: 0.88rem; color: rgba(255,255,255,0.78); line-height: 1.7; }
@@ -688,8 +685,8 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 860px) {
-      header { padding: 0 20px; height: 80px; }
-      .header-logo img { height: 66px; }
+      header { padding: 0 20px; height: 90px; }
+      .header-logo img { height: 78px; }
       nav { display: none; }
       .hamburger { display: flex; }
 
@@ -726,7 +723,7 @@
       .form-row { grid-template-columns: 1fr; }
 
       .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-      .footer-logo img { height: 90px; }
+      .footer-logo img { max-width: 180px; }
 
       .options-grid { grid-template-columns: 1fr; }
       .schools-photos { grid-template-columns: 1fr !important; }
