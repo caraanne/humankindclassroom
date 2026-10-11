@@ -161,30 +161,27 @@
       align-items: center;
     }
 
-    .press-names span.press-item {
-      display: inline-flex;
+    .press-names {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px 40px;
       align-items: center;
-      gap: 7px;
-      color: white;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      opacity: 0.9;
-      white-space: nowrap;
+      justify-content: center;
     }
 
-    .press-names span.press-item img {
-      width: 20px;
-      height: 20px;
-      border-radius: 4px;
+    .press-names .press-item {
       display: block;
-      flex-shrink: 0;
     }
 
-    .press-divider {
-      color: rgba(255,255,255,0.3);
-      font-size: 0.8rem;
+    .press-names .press-item img {
+      height: 36px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
     }
+
+    .press-divider { display: none; }
 
     .press-more {
       display: block;
@@ -379,21 +376,14 @@
   <div class="as-seen-in-inner">
     <span class="as-seen-in-label">Featured by and presented at</span>
     <div class="press-names">
-      <span class="press-item"><img src="https://www.google.com/s2/favicons?domain=edutopia.org&sz=32" alt="" />Edutopia</span>
-      <span class="press-divider">·</span>
-      <span class="press-item"><img src="https://www.google.com/s2/favicons?domain=sxswedu.com&sz=32" alt="" />SXSW EDU</span>
-      <span class="press-divider">·</span>
-      <span class="press-item"><img src="https://www.google.com/s2/favicons?domain=boostconference.org&sz=32" alt="" />BOOST</span>
-      <span class="press-divider">·</span>
-      <span class="press-item"><img src="https://www.google.com/s2/favicons?domain=businessinsider.com&sz=32" alt="" />Business Insider</span>
-      <span class="press-divider">·</span>
-      <span class="press-item"><img src="https://www.google.com/s2/favicons?domain=montessori.org&sz=32" alt="" />Montessori Foundation</span>
-      <span class="press-divider">·</span>
-      <span class="press-item"><img src="https://www.google.com/s2/favicons?domain=nypl.org&sz=32" alt="" />NY Public Library</span>
-      <span class="press-divider">·</span>
-      <span class="press-item"><img src="child-australia-logo.png" alt="" />Child Australia</span>
-      <span class="press-divider">·</span>
-      <span class="press-item"><img src="https://www.google.com/s2/favicons?domain=booksaremagic.net&sz=32" alt="" />Books Are Magic</span>
+      <span class="press-item"><img src="images-for-upload/logo-edutopia-media.png" alt="Edutopia" /></span>
+      <span class="press-item"><img src="images-for-upload/logo-Business-Insider.jpg" alt="Business Insider" /></span>
+      <span class="press-item"><img src="images-for-upload/logo-nypl.png" alt="NY Public Library" /></span>
+      <span class="press-item"><img src="images-for-upload/logo-child_australia.jpg" alt="Child Australia" /></span>
+      <span class="press-item"><img src="images-for-upload/logo-wsms.jpg" alt="West Side Montessori School" /></span>
+      <span class="press-item"><img src="images-for-upload/logo-books-magic.png" alt="Books Are Magic" /></span>
+      <span class="press-item"><img src="images-for-upload/logo-fox61-media.png" alt="Fox 61" /></span>
+      <span class="press-item"><img src="images-for-upload/logo-Macquarie-media.png" alt="Macquarie" /></span>
     </div>
     <a href="https://worldoflittledude.com/press/" target="_blank" class="press-more">View press and speaking highlights →</a>
   </div>
