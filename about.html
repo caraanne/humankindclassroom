@@ -162,20 +162,23 @@
     }
 
     .press-names {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px 40px;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .press-names .press-item {
       display: flex;
-      flex-wrap: wrap;
-      gap: 28px 40px;
       align-items: center;
       justify-content: center;
     }
 
-    .press-names .press-item {
-      display: block;
-    }
-
     .press-names .press-item img {
-      height: 36px;
+      height: 40px;
       width: auto;
+      max-width: 140px;
       display: block;
       filter: brightness(0) invert(1);
       opacity: 0.85;
