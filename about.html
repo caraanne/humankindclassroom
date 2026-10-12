@@ -132,55 +132,51 @@
 
     /* ===== AS SEEN IN ===== */
     .as-seen-in {
-      background: var(--dusty-navy);
-      padding: 48px 0;
+      background: white;
+      padding: 44px 40px;
+      text-align: center;
+      border-bottom: 2px solid rgba(126,190,201,0.2);
     }
 
     .as-seen-in-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 40px;
       text-align: center;
     }
 
     .as-seen-in-label {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.6px;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 24px;
+      letter-spacing: 1.5px;
+      color: #999;
+      margin-bottom: 28px;
       display: block;
     }
 
     .press-names {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: center;
-      gap: 12px 24px;
       align-items: center;
-    }
-
-    .press-names {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px 40px;
-      align-items: center;
-      justify-items: center;
+      gap: 0 20px;
     }
 
     .press-names .press-item {
       display: flex;
       align-items: center;
       justify-content: center;
+      height: 48px;
+      padding: 0 4px;
+      flex-shrink: 0;
     }
 
     .press-names .press-item img {
-      height: 64px;
+      height: 52px;
       width: auto;
-      max-width: 180px;
+      max-width: 150px;
+      object-fit: contain;
       display: block;
-      opacity: 0.92;
     }
 
     .press-divider { display: none; }
