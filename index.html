@@ -713,6 +713,7 @@
 
       .free-inner { grid-template-columns: 1fr; gap: 36px; }
       .free-inner img { max-width: 240px !important; display: block; margin: 0 auto; }
+      #free-program > img { width: 140px !important; }
 
       .kit-inner { grid-template-columns: 1fr; gap: 36px; }
       .kit-image { min-height: 260px; }
@@ -968,7 +969,8 @@
 </section>
 
 <!-- FREE PROGRAM -->
-<section style="background: var(--cream);" id="free-program">
+<section style="background: var(--cream); position: relative; padding-bottom: 180px;" id="free-program">
+  <img src="images-for-upload/4.png" alt="Little Dude illustration" style="position:absolute; bottom:0; left: max(40px, calc((100vw - 1100px)/2 + 40px)); width:200px; pointer-events:none;" />
   <div class="wrap">
     <div class="free-inner">
       <div style="display:flex; flex-direction:column;">
@@ -1035,8 +1037,9 @@
 <section style="background: white;" id="classroom-kit">
   <div class="wrap">
     <div class="kit-inner">
-      <div class="kit-image">
-        <img src="images-for-upload/photo-kit-flatlay.jpg" alt="humanKIND Classroom Kit — nine books, Little Dude and Bird plush characters" />
+      <div class="kit-image" style="flex-direction:column; gap:16px;">
+        <img src="images-for-upload/photo-kit-flatlay.jpg" alt="humanKIND Classroom Kit — nine books, Little Dude and Bird plush characters" style="width:100%; border-radius:16px;" />
+        <img src="images-for-upload/humankindclassroom-cover.png" alt="humanKIND Classroom program cover" style="width:100%; border-radius:16px;" />
       </div>
       <div>
         <p style="font-size:0.95rem;color:#888;margin-bottom:6px;">Prefer everything printed and ready to use?</p>
