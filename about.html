@@ -32,8 +32,9 @@
       --golden: #FCB626;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { overflow-x: hidden; }
 
     body {
       font-family: 'Nunito Sans', sans-serif;
@@ -317,7 +318,7 @@
       .about-hero-inner { padding: 0 20px; }
       .about-hero-img { order: -1; }
       .footer-inner { grid-template-columns: 1fr; gap: 24px; }
-      .press-names { gap: 10px 16px; }
+      .press-names { gap: 10px 16px; flex-wrap: wrap; }
     }
   </style>
 </head>
