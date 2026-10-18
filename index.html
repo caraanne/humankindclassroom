@@ -37,8 +37,9 @@
       --olive: #BFB31A;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { overflow-x: hidden; }
 
     body {
       font-family: 'Nunito Sans', sans-serif;
@@ -707,6 +708,8 @@
       .rhythm-label { font-size: 0.76rem; }
 
       .themes-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .challenge-tags { flex-wrap: wrap; }
+      .challenge-tags span { white-space: normal; }
 
       .pricing-tiers { grid-template-columns: 1fr; }
       .tier-featured { transform: none; }
