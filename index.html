@@ -702,8 +702,8 @@
       .hero-buttons { flex-direction: column; }
       .hero-buttons .btn { width: 100%; text-align: center; }
 
-      .rhythm { gap: 0; }
-      .rhythm-step { min-width: 80px; padding: 12px 8px; }
+      .rhythm { gap: 16px; justify-content: center; }
+      .rhythm-step { min-width: unset; width: calc(20% - 16px); flex: 1 1 calc(20% - 16px); padding: 12px 8px; }
       .rhythm-step:not(:last-child)::after { display: none; }
       .rhythm-label { font-size: 0.76rem; }
 
