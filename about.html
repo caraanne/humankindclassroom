@@ -13,6 +13,26 @@
   <meta property="og:url" content="https://humankindclassroom.com/about.html" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Cara Zelas",
+    "url": "https://humankindclassroom.com/about.html",
+    "jobTitle": "Children's Book Author, Montessori Educator & Early Childhood Expert",
+    "description": "Montessori-trained early childhood educator and children's book author with over 20 years of classroom experience. Creator of humanKIND Classroom and Big World of Little Dude.",
+    "knowsAbout": ["Montessori education", "early childhood development", "social skills for kids", "classroom social skills curriculum", "kindness programs", "children's books"],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "humanKIND Classroom",
+      "url": "https://humankindclassroom.com"
+    },
+    "sameAs": [
+      "https://worldoflittledude.com/about.html",
+      "https://www.instagram.com/humankindclassroom"
+    ]
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
@@ -191,15 +211,23 @@
     .press-divider { display: none; }
 
     .press-more {
-      display: block;
-      margin-top: 20px;
-      color: var(--golden);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      margin-right: 10px;
+      color: white;
+      background: var(--golden);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 50px;
+      transition: opacity 0.2s;
     }
 
-    .press-more:hover { text-decoration: underline; }
+    .press-more:hover { opacity: 0.85; text-decoration: none; }
+    .press-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 
     /* ===== STORY ===== */
     .about-story {
@@ -315,6 +343,9 @@
 
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
     .footer-bottom p { color: rgba(255,255,255,0.4); font-size: 0.8rem; margin: 0; }
+    .footer-social-icons { display: flex; gap: 12px; margin-top: 16px; }
+    .footer-social-btn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.15); color: white; transition: background 0.2s; flex-shrink: 0; }
+    .footer-social-btn:hover { background: rgba(255,255,255,0.3); }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
@@ -392,7 +423,10 @@
       <span class="press-item"><img src="logo-fox61-media.png" alt="Fox 61" /></span>
       <span class="press-item"><img src="logo-Macquarie-media.png" alt="Macquarie" /></span>
     </div>
-    <a href="https://worldoflittledude.com/press/" target="_blank" class="press-more">View press and speaking highlights →</a>
+    <div class="press-links">
+      <a href="https://worldoflittledude.com/media.html" target="_blank" class="press-more">View press &amp; speaking highlights →</a>
+      <a href="https://www.edutopia.org/profile/cara-zelas" target="_blank" class="press-more" style="background: var(--teal-green);">Read my Edutopia articles →</a>
+    </div>
   </div>
 </div>
 
@@ -435,7 +469,6 @@
         <p>Each book is supported by practical lessons built around storytelling, play, movement and reflection, giving educators simple ways to help children practice these skills in everyday classroom moments.</p>
         <p>Together, the books and lessons became humanKIND Classroom, a literacy-based curriculum designed to help educators build social skills, communication and a stronger classroom culture without complicated training or preparation.</p>
         <p>I have also written for Edutopia about early childhood education, including restorative practices, classroom community and helping young children navigate friendships.</p>
-        <a href="https://www.edutopia.org/profile/cara-zelas" target="_blank" class="edutopia-link"><img src="https://www.google.com/s2/favicons?domain=edutopia.org&sz=32" alt="" style="width:18px;height:18px;border-radius:3px;" /> Read my Edutopia articles →</a>
       </div>
       <div class="about-books-img">
         <img src="Books%20section.jpg" alt="Cara Zelas with the Big World of Little Dude book series" />
@@ -463,6 +496,17 @@
       <div class="footer-logo">
         <img src="NEWHumanKIND-logo-TM.png" alt="humanKIND Classroom" />
         <p>Story-based social skills curriculum for Pre-K through Second Grade.</p>
+        <div class="footer-social-icons">
+          <a href="https://www.instagram.com/humankindclassroom" target="_blank" class="footer-social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/carazelas/" target="_blank" class="footer-social-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://worldoflittledude.com" target="_blank" class="footer-social-btn" aria-label="Big World of Little Dude">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1 21.945A10.015 10.015 0 012.055 13H5.1c.2 2.5 1.1 4.8 2.7 6.6L11 21.9v.045zm2 0V21.9l3.2-2.3c1.6-1.8 2.5-4.1 2.7-6.6h3.045A10.015 10.015 0 0113 21.945zM13 11h7.945A10.015 10.015 0 0013 2.055V11zm-2 0V2.055A10.015 10.015 0 002.055 11H11zm0 2H2.055A10.015 10.015 0 0011 21.945V13zm2 0v8.945A10.015 10.015 0 0021.945 13H13z"/></svg>
+          </a>
+        </div>
       </div>
       <div class="footer-col">
         <h4>Navigate</h4>
