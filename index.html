@@ -219,6 +219,10 @@
     .btn-outline:hover { background: var(--dusty-navy); color: white; }
     .btn-golden { background: var(--golden); color: var(--brown); }
     .btn-white { background: white; color: var(--dusty-navy); }
+    .btn-coral { background: var(--coral); color: white; box-shadow: 0 4px 14px rgba(244,73,51,0.3); }
+    .btn-coral:hover { background: #d63d29; }
+    .btn-coral-outline { background: transparent; color: var(--coral); border: 2px solid var(--coral); }
+    .btn-coral-outline:hover { background: var(--coral); color: white; }
 
     /* ===== POP-UP ===== */
     .popup-overlay {
@@ -798,6 +802,8 @@
       .form-row { grid-template-columns: 1fr; }
 
       .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .cara-cred-grid { grid-template-columns: 1fr !important; text-align:center; }
+      .cara-cred-photo { margin:0 auto; }
       .footer-logo img { max-width: 180px; }
 
       .options-grid { grid-template-columns: 1fr; }
@@ -840,7 +846,8 @@
     <a href="#pricing">Pricing</a>
     <a href="schools.html">For Schools</a>
     <a href="about.html">About Cara</a>
-    <a href="#free-program" class="nav-cta">Apply for Free Access</a>
+    <a href="mailto:hello@worldoflittledude.com" style="font-size:0.82rem; color:#888;">hello@worldoflittledude.com</a>
+    <a href="schools.html" class="nav-cta">School Partnerships</a>
   </nav>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -867,8 +874,8 @@
         <p style="font-weight:700; color:var(--teal-green); font-size:1.05rem; margin-bottom:10px;">Smoother transitions. Stronger friendships.<br/>More confident communicators.</p>
         <p>humanKIND Classroom&#8482; is a story-based program that helps children ages 4-8 practice communication, self-regulation, friendship, and everyday classroom skills through simple routines that fit naturally into the school day.</p>
         <div class="hero-buttons">
-          <a href="#" class="btn btn-green" onclick="openPopup();return false;">Get My Free Book + Lesson Plan</a>
-          <a href="#pricing" class="btn btn-outline">Explore the Options</a>
+          <a href="schools.html" class="btn btn-coral">Explore School Partnerships</a>
+          <a href="#" class="btn btn-coral-outline" onclick="openPopup();return false;">Get a Free Book + Lesson Plan</a>
         </div>
       </div>
       <div class="hero-image">
@@ -972,6 +979,25 @@
   </div>
 </section>
 
+<!-- CARA CREDIBILITY -->
+<section style="background: var(--olive); padding: 64px 0;">
+  <div class="wrap">
+    <div style="display:grid; grid-template-columns:200px 1fr; gap:48px; align-items:center;">
+      <!-- Circle photo placeholder -->
+      <div style="width:180px; height:180px; border-radius:50%; background:rgba(255,255,255,0.25); display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0;">
+        <p style="color:white; font-size:0.8rem; text-align:center; margin:0; opacity:0.7;">Photo<br>coming soon</p>
+      </div>
+      <!-- Info -->
+      <div>
+        <p style="color:rgba(255,255,255,0.75); font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Created by</p>
+        <h3 style="color:white; font-size:1.6rem; margin-bottom:14px;">Cara Zelas</h3>
+        <p style="color:rgba(255,255,255,0.92); font-size:0.97rem; line-height:1.7; margin-bottom:0;">AMS-certified Montessori educator with 20+ years in early childhood classrooms. Published on Edutopia. Speaker at SXSW EDU, New York Public Library, Child Australia, and the Connecticut Afterschool Network.</p>
+        <a href="about.html" style="display:inline-block; margin-top:18px; color:white; font-weight:700; font-size:0.92rem; border-bottom:2px solid rgba(255,255,255,0.5); text-decoration:none;">Meet Cara &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING TIERS -->
 <section style="background: white;" id="pricing">
   <div class="wrap">
@@ -990,6 +1016,7 @@
           <p class="tier-price-sub">Always</p>
         </div>
         <div class="tier-body">
+          <p style="font-size:0.82rem; font-weight:700; color:var(--teal-blue); margin-bottom:16px; font-style:italic;">Your teachers do everything</p>
           <ul class="tier-features">
             <li>Complete nine-theme digital curriculum</li>
             <li>Nine digital Little Dude books</li>
@@ -1009,6 +1036,7 @@
           <p class="tier-price-sub">One-time purchase</p>
         </div>
         <div class="tier-body">
+          <p style="font-size:0.82rem; font-weight:700; color:var(--teal-green); margin-bottom:16px; font-style:italic;">Your teachers do everything, with better resources</p>
           <ul class="tier-features">
             <li>Nine physical Little Dude books</li>
             <li>Printed humanKIND Classroom Handbook</li>
@@ -1031,6 +1059,7 @@
           <p class="tier-price-sub">For one classroom</p>
         </div>
         <div class="tier-body">
+          <p style="font-size:0.82rem; font-weight:700; color:var(--dusty-navy); margin-bottom:16px; font-style:italic;">We train your teachers, they deliver it</p>
           <ul class="tier-features">
             <li>Complete nine-theme curriculum</li>
             <li>One physical Classroom Kit per classroom</li>
@@ -1216,16 +1245,6 @@
   </div>
 </section>
 
-<!-- CARA CREDIBILITY -->
-<section style="background: var(--dusty-navy); padding: 48px 0;">
-  <div class="wrap" style="text-align:center;">
-    <p style="color:rgba(255,255,255,0.7); font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:12px;">Created by</p>
-    <h3 style="color:white; font-size:1.4rem; margin-bottom:12px;">Cara Zelas</h3>
-    <p style="color:rgba(255,255,255,0.88); font-size:0.97rem; max-width:680px; margin:0 auto; line-height:1.7;">AMS-certified Montessori educator with 20+ years in early childhood classrooms. Published on Edutopia. Speaker at SXSW EDU, New York Public Library, Child Australia, and the Connecticut Afterschool Network.</p>
-    <a href="about.html" style="display:inline-block; margin-top:20px; color:var(--golden); font-weight:700; font-size:0.92rem;">Meet Cara &rarr;</a>
-  </div>
-</section>
-
 <!-- TESTIMONIALS -->
 <section style="background: var(--cream);">
   <div class="wrap">
@@ -1292,11 +1311,6 @@
   </div>
 </section>
 
-<!-- CROSS-LINK BANNER -->
-<section style="background: var(--blush); padding: 20px 0; text-align:center;">
-  <p style="margin:0; font-size:0.95rem; color:var(--brown);">Are you a parent? Little Dude books and resources are at <a href="https://worldoflittledude.com" target="_blank" style="color:var(--coral); font-weight:700;">worldoflittledude.com &rarr;</a></p>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -1311,7 +1325,7 @@
       <a href="#classroom-kit">Classroom Kit</a>
       <a href="#for-schools">For Schools</a>
       <a href="about.html">About Cara</a>
-      <a href="mailto:hello@humankindclassroom.com">Contact</a>
+      <a href="mailto:hello@worldoflittledude.com">hello@worldoflittledude.com</a>
     </div>
     <div class="footer-col">
       <h4>Connect</h4>
