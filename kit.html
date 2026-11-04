@@ -12,6 +12,7 @@
   <meta property="og:image" content="https://humankindclassroom.com/photo-kit-flatlay.jpg" />
   <meta property="og:url" content="https://humankindclassroom.com/kit.html" />
   <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://humankindclassroom.com/kit.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json">
   {
@@ -19,6 +20,7 @@
     "@type": "Product",
     "name": "humanKIND Classroom Kit",
     "url": "https://humankindclassroom.com/kit.html",
+    "image": "https://humankindclassroom.com/photo-kit-flatlay.jpg",
     "description": "A complete social skills program for early childhood classrooms (Pre-K through Grade 2). Includes books, activity packs and classroom resources to teach kindness, friendship, big feelings and social skills.",
     "brand": {
       "@type": "Brand",
@@ -32,9 +34,28 @@
     "offers": {
       "@type": "Offer",
       "priceCurrency": "USD",
-      "price": "397",
+      "price": "397.00",
       "availability": "https://schema.org/InStock",
-      "url": "https://humankindclassroom.com/kit.html"
+      "url": "https://humankindclassroom.com/kit.html",
+      "seller": { "@type": "Organization", "name": "humanKIND Classroom" },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "USD" },
+        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY" },
+          "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 7, "unitCode": "DAY" }
+        }
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "US",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 30,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      }
     },
     "creator": {
       "@type": "Person",
