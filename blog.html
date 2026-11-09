@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="humankind-heart-favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Educators Blog | humanKIND Classroom</title>
+  <meta name="description" content="Practical ideas, teaching tips, and early childhood insights for Pre-K through Grade 2 educators. From Cara Zelas, creator of humanKIND Classroom." />
+  <meta property="og:title" content="For Educators Blog | humanKIND Classroom" />
+  <meta property="og:description" content="Practical ideas, teaching tips, and early childhood insights for Pre-K through Grade 2 educators." />
+  <meta property="og:image" content="https://humankindclassroom.com/photo-kit-flatlay.jpg" />
+  <meta property="og:url" content="https://humankindclassroom.com/blog.html" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://humankindclassroom.com/blog.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yphul0ji91");
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J1B7JZ10RS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J1B7JZ10RS');
+  </script>
+  <style>
+    :root {
+      --cream: #FFFCED;
+      --teal-blue: #7EBEC9;
+      --teal-green: #4AA694;
+      --dusty-navy: #587792;
+      --brown: #5C4226;
+      --mauve: #BF73A5;
+      --golden: #FCB626;
+      --coral: #F44933;
+      --blush: #FBB5B3;
+      --terracotta: #D9856B;
+      --periwinkle: #9CA7D1;
+      --olive: #BFB31A;
+    }
+
+    html { scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { overflow-x: hidden; font-family: 'Nunito Sans', sans-serif; background: var(--cream); color: var(--brown); line-height: 1.7; }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky; top: 0; z-index: 200;
+      background: white;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 96px;
+    }
+    .header-logo img { height: 88px; width: auto; display: block; mix-blend-mode: multiply; }
+    nav { display: flex; align-items: center; gap: 24px; }
+    nav a { text-decoration: none; color: var(--brown); font-weight: 600; font-size: 0.87rem; transition: color 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--teal-green); }
+    .nav-cta { background: var(--teal-green); color: white !important; padding: 10px 18px; border-radius: 50px; font-weight: 700 !important; font-size: 0.84rem !important; }
+    .nav-cta:hover { background: var(--dusty-navy) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--brown); border-radius: 2px; transition: all 0.25s; }
+    .mobile-nav { display: none; position: fixed; top: 96px; left: 0; right: 0; background: white; z-index: 199; padding: 16px 24px 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); flex-direction: column; gap: 0; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { text-decoration: none; color: var(--brown); font-weight: 600; font-size: 1rem; padding: 14px 0; border-bottom: 1px solid #f0ede8; display: block; }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav .nav-cta { margin-top: 12px; text-align: center; border-radius: 50px; padding: 14px 24px; }
+
+    /* ===== LAYOUT ===== */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+    .section-label { display: block; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.4px; color: var(--teal-green); margin-bottom: 12px; }
+    h1, h2, h3 { font-family: 'Nunito', sans-serif; font-weight: 900; line-height: 1.2; }
+    h1 { font-size: clamp(1.8rem, 4.5vw, 3.2rem); color: var(--dusty-navy); margin-bottom: 22px; }
+    h2 { font-size: clamp(1.5rem, 3.2vw, 2.4rem); color: var(--dusty-navy); margin-bottom: 18px; }
+    h3 { font-size: 1.1rem; color: var(--brown); margin-bottom: 8px; }
+    p { font-size: 1rem; color: #555; margin-bottom: 16px; }
+
+    /* ===== HERO ===== */
+    .blog-hero {
+      background: white;
+      padding: 72px 0 56px;
+      border-bottom: 1px solid #eee;
+    }
+    .blog-hero h1 { margin-bottom: 16px; }
+    .blog-hero p { font-size: 1.1rem; max-width: 580px; color: #666; margin: 0; }
+
+    /* ===== BLOG GRID ===== */
+    .blog-section { padding: 72px 0; }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
+
+    .blog-card-color {
+      height: 8px;
+    }
+
+    .blog-card-body {
+      padding: 28px 28px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--teal-green);
+      margin-bottom: 10px;
+    }
+
+    .blog-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--dusty-navy);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .blog-card p {
+      font-size: 0.92rem;
+      color: #666;
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .blog-card a.read-more {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--teal-green);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .blog-card a.read-more:hover { color: var(--dusty-navy); }
+
+    .coming-soon-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: #f0f0f0;
+      color: #999;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* ===== CTA BANNER ===== */
+    .blog-cta {
+      background: var(--teal-green);
+      padding: 64px 0;
+      text-align: center;
+    }
+    .blog-cta h2 { color: white; margin-bottom: 14px; }
+    .blog-cta p { color: rgba(255,255,255,0.88); max-width: 520px; margin: 0 auto 32px; }
+    .btn { display: inline-block; padding: 15px 32px; border-radius: 50px; font-weight: 800; font-size: 0.97rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-golden { background: var(--golden); color: var(--brown); box-shadow: 0 4px 14px rgba(252,182,38,0.35); }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--dusty-navy); padding: 56px 0 32px; }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+    .footer-logo img { height: 72px; mix-blend-mode: lighten; margin-bottom: 12px; }
+    .footer-logo p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+    .footer-col h4 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); margin-bottom: 14px; }
+    .footer-col a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; margin-bottom: 8px; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+    .footer-bottom p { color: rgba(255,255,255,0.4); font-size: 0.8rem; margin: 0; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .wrap { padding: 0 20px; }
+      .blog-grid { grid-template-columns: 1fr; gap: 20px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="header-logo">
+    <img src="NEWHumanKIND-logo-TM.png" alt="humanKIND Classroom" />
+  </a>
+  <nav>
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="index.html#free-program">Free Program</a>
+    <a href="kit.html">The Kit</a>
+    <a href="schools.html">For Schools</a>
+    <a href="about.html">About Cara</a>
+    <a href="index.html#free-program" class="nav-cta">Apply for Free Access</a>
+  </nav>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html#how-it-works" onclick="closeMenu()">How It Works</a>
+  <a href="index.html#free-program" onclick="closeMenu()">Free Program</a>
+  <a href="kit.html" onclick="closeMenu()">The Kit</a>
+  <a href="schools.html" onclick="closeMenu()">For Schools</a>
+  <a href="about.html">About Cara</a>
+  <a href="index.html#free-program" class="nav-cta" onclick="closeMenu()">Apply for Free Access</a>
+</div>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="wrap">
+    <span class="section-label">For Educators</span>
+    <h1>Ideas, insights, and practical tools<br>for early childhood teachers.</h1>
+    <p>Written by Cara Zelas — Montessori-trained early childhood educator, children's book author, and creator of humanKIND Classroom.</p>
+  </div>
+</section>
+
+<!-- BLOG POSTS -->
+<section class="blog-section">
+  <div class="wrap">
+    <span class="section-label">Latest Articles</span>
+    <div class="blog-grid">
+
+      <div class="blog-card">
+        <div class="blog-card-color" style="background: var(--teal-green);"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Classroom Community</span>
+          <h3>How to Build Classroom Community in the First Week of Pre-K</h3>
+          <p>The first week is not about academics. It is about one thing only: helping every child feel like they belong. Here are seven practical strategies that work from day one.</p>
+          <a href="blog-classroom-community-first-week.html" class="read-more">Read article &rarr;</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-card-color" style="background: var(--golden);"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Morning Meeting</span>
+          <h3>Morning Meeting Ideas for Pre-K and Kindergarten That Take 10 Minutes</h3>
+          <p>You do not need 30 minutes to build meaningful classroom community. Ten focused, consistent minutes every morning will do more for your class culture than any single big event.</p>
+          <a href="blog-morning-meeting-10-minutes.html" class="read-more">Read article &rarr;</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-card-color" style="background: var(--coral);"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Big Feelings</span>
+          <h3>How to Respond When a Child Has a Meltdown (Without Making It Worse)</h3>
+          <p>A meltdown is not a behavior problem. It is a brain problem. And the way you respond in that moment can either shorten the storm or make it last twice as long.</p>
+          <a href="blog-meltdown-response.html" class="read-more">Read article &rarr;</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-card-color" style="background: var(--teal-blue);"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Friendship</span>
+          <h3>How to Help the Child Who Has No Friends in Your Class</h3>
+          <p>There is one in almost every class. A child who is always a little bit outside the group. Here are gentle, practical strategies to help them find real connection.</p>
+          <a href="blog-child-no-friends.html" class="read-more">Read article &rarr;</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-card-color" style="background: var(--mauve);"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Kindness</span>
+          <h3>How to Teach Kindness in the Classroom (Not Just Talk About It)</h3>
+          <p>Telling children to be kind does not make them kind. Here are six practical approaches that build kindness through real experience, not lectures.</p>
+          <a href="blog-teach-kindness-not-just-talk.html" class="read-more">Read article &rarr;</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-card-color" style="background: var(--dusty-navy);"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Conflict Resolution</span>
+          <h3>What to Say When Two Kids Won't Stop Fighting Over a Toy</h3>
+          <p>A step-by-step teacher script for turning toy conflicts into genuine learning moments. Every conflict is a free lesson in problem-solving.</p>
+          <a href="blog-toy-fight-script.html" class="read-more">Read article &rarr;</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-card-color" style="background: var(--periwinkle);"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Books</span>
+          <h3>5 Picture Books That Teach Friendship Skills to Young Children</h3>
+          <p>The right book at the right moment opens conversations that lessons never could. These five books have started some of the most meaningful discussions Cara has ever had with young children.</p>
+          <a href="blog-picture-books-friendship.html" class="read-more">Read article &rarr;</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-card-color" style="background: var(--teal-green);"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">About Our Approach</span>
+          <h3>What Is the humanKIND Method? A Simple Approach to Teaching Social Skills</h3>
+          <p>Five steps. One lesson at a time. Here is how the humanKIND Method works, why it was designed this way, and what makes it different from other programs.</p>
+          <a href="blog-humankind-method.html" class="read-more">Read article &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="blog-cta">
+  <div class="wrap">
+    <h2>Want the full classroom program?</h2>
+    <p>The humanKIND Classroom Kit gives you everything you need to build social skills into your school day -- stories, activities, lesson plans, and more.</p>
+    <a href="kit.html" class="btn btn-golden">Explore the Classroom Kit &rarr;</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="NEWHumanKIND-logo-TM.png" alt="humanKIND Classroom" />
+        <p>Story-based social skills curriculum for Pre-K through Second Grade.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html#free-program">Free Program</a>
+        <a href="kit.html">The Kit</a>
+        <a href="schools.html">For Schools</a>
+        <a href="about.html">About Cara</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/worldoflittledude" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/carazelas/" target="_blank">LinkedIn</a>
+        <a href="http://www.worldoflittledude.com/" target="_blank">Big World of Little Dude</a>
+        <a href="humanKIND-Classroom-Privacy-Policy.pdf" target="_blank">Privacy Policy</a>
+        <a href="humanKIND-Classroom-Terms-and-Conditions.pdf" target="_blank">Terms &amp; Conditions</a>
+        <a href="humanKIND-Classroom-Refund-Policy.pdf" target="_blank">Refund Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 humanKIND Classroom. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() { document.getElementById('mobileNav').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobileNav').classList.remove('open'); }
+</script>
+
+</body>
+</html>
