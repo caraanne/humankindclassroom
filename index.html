@@ -854,6 +854,7 @@
       .kit-inner { grid-template-columns: 1fr; gap: 36px; }
       .kit-image { min-height: 260px; }
 
+      .testimonial-quotes-grid { grid-template-columns: 1fr !important; }
       .faq-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
 
@@ -1312,12 +1313,20 @@
   <div class="wrap">
     <span class="section-label" style="text-align:center; display:block;">What Educators Are Saying</span>
 
-    <!-- Featured educator quote -->
-    <div class="testimonial-featured">
-      <div class="testimonial-accent"></div>
-      <p class="testimonial-text">"Her books are so engaging and the curriculum was easy to implement. The multisensory approach really changed the way our class interacted and made the children much more cognizant of their peer interactions and of themselves!"</p>
-      <p class="testimonial-author">Katie Lena</p>
-      <p class="testimonial-role">Fives Teacher, ACP Westport, Connecticut</p>
+    <!-- Featured educator quotes -->
+    <div class="testimonial-quotes-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 48px;">
+      <div class="testimonial-featured" style="margin-bottom:0;">
+        <div class="testimonial-accent"></div>
+        <p class="testimonial-text">"Her books are so engaging and the curriculum was easy to implement. The multisensory approach really changed the way our class interacted and made the children much more cognizant of their peer interactions and of themselves!"</p>
+        <p class="testimonial-author">Katie Lena</p>
+        <p class="testimonial-role">Fives Teacher, ACP Westport, Connecticut</p>
+      </div>
+      <div class="testimonial-featured" style="margin-bottom:0;">
+        <div class="testimonial-accent" style="background: var(--teal-green);"></div>
+        <p class="testimonial-text">"humanKIND Classroom gives children meaningful opportunities to practice important social skills, like how to make a friend, self-regulate, and build confidence. Cara brings warmth, creativity, and a thoughtful approach to connecting with both children and teachers. A wonderful addition to our school."</p>
+        <p class="testimonial-author">Rebekah Rosler</p>
+        <p class="testimonial-role">Psychotherapist, Bonim Preschool</p>
+      </div>
     </div>
 
     <!-- Institutional testimonials -->
