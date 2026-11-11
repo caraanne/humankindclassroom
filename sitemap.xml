@@ -6,9 +6,14 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://humankindclassroom.com/schools.html</loc>
+    <loc>https://humankindclassroom.com/kit.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/schools.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humankindclassroom.com/about.html</loc>
@@ -16,12 +21,87 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://humankindclassroom.com/kit.html</loc>
+    <loc>https://humankindclassroom.com/preview.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://humankindclassroom.com/preview.html</loc>
+    <loc>https://humankindclassroom.com/blog-child-being-bullied.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-child-feels-lonely.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-child-no-friends.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-child-struggles-transitions.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-classroom-community-first-week.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-humankind-method.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-meltdown-response.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-morning-meeting-10-minutes.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-morning-meeting-questions.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-picture-books-friendship.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-picture-books-kindness.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-small-group-activities-preschoolers.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-social-skills-activities-preschoolers.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-teach-kindness-not-just-talk.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humankindclassroom.com/blog-toy-fight-script.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
