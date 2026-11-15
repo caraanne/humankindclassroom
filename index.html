@@ -835,6 +835,8 @@
       .hero-buttons { flex-direction: column; }
       .hero-buttons .btn { width: 100%; text-align: center; }
 
+      .quick-facts-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
       .rhythm { gap: 16px; justify-content: center; }
       .rhythm-step { min-width: unset; width: calc(20% - 16px); flex: 1 1 calc(20% - 16px); padding: 12px 8px; }
       .rhythm-step:not(:last-child)::after { display: none; }
@@ -877,8 +879,7 @@
     <button class="popup-close" onclick="closePopup()" aria-label="Close">&times;</button>
     <span class="popup-badge">Free Download</span>
     <h3>Try a Little Dude Lesson for Free!</h3>
-    <p>Discover how Little Dude helps children practice kindness, communication, and everyday social skills. Get a free sample digital book and its complete lesson plan, ready to use in your classroom.</p>
-    <p style="font-size:0.85rem; color:#666; margin-top:8px;">This is a sample lesson, not the full curriculum. To access the complete nine-theme program, apply for free below.</p>
+    <p>Get a free sample digital book and its complete lesson plan, ready to use in your classroom.</p>
     <div class="form-group">
       <label>First name</label>
       <input type="text" id="bookFirstName" placeholder="Your first name" />
@@ -1037,6 +1038,30 @@
           <img src="images-for-upload/09-Courage.png" alt="Courage" loading="lazy" />
         </div>
         <p>Courage</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK FACTS -->
+<section style="background: white; padding: 40px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+  <div class="wrap">
+    <div class="quick-facts-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; max-width: 860px; margin: 0 auto; background: #eee; border-radius: 16px; overflow: hidden;">
+      <div style="background: white; padding: 24px 20px; text-align: center;">
+        <div style="font-family:'Nunito',sans-serif; font-weight:900; font-size:1.6rem; color:var(--teal-green); line-height:1; margin-bottom:6px;">Ages 3–8</div>
+        <div style="font-size:0.82rem; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Pre-K through Grade 2</div>
+      </div>
+      <div style="background: white; padding: 24px 20px; text-align: center;">
+        <div style="font-family:'Nunito',sans-serif; font-weight:900; font-size:1.6rem; color:var(--teal-green); line-height:1; margin-bottom:6px;">15–20 min</div>
+        <div style="font-size:0.82rem; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Per lesson</div>
+      </div>
+      <div style="background: white; padding: 24px 20px; text-align: center;">
+        <div style="font-family:'Nunito',sans-serif; font-weight:900; font-size:1.6rem; color:var(--teal-green); line-height:1; margin-bottom:6px;">9 themes</div>
+        <div style="font-size:0.82rem; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Story-based units</div>
+      </div>
+      <div style="background: white; padding: 24px 20px; text-align: center;">
+        <div style="font-family:'Nunito',sans-serif; font-weight:900; font-size:1.6rem; color:var(--teal-green); line-height:1; margin-bottom:6px;">Free–$397</div>
+        <div style="font-size:0.82rem; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Digital free / Full kit</div>
       </div>
     </div>
   </div>
